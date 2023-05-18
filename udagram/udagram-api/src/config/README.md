@@ -14,3 +14,5 @@ You need a separate S3 Media bucket !
 `URL` : Your backend URL, can be found after creating EB Environment  
 `JWT_SECRET` : Your JWT token secret, can be set to any value
 
+<!-- this project is whack -->
+
