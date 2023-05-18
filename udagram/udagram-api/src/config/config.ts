@@ -7,7 +7,7 @@ dotenv.config();
 // Are Also needed
 
 export const config = {
-  aws_access_key_id: process.env.AWS_ACCESS_KEY,
+  aws_access_key_id: process.env.AWS_ACCESS_KEY_ID,
   aws_secret_access_key: process.env.AWS_SECRET_ACCESS_KEY,
   username: `${process.env.POSTGRES_USERNAME}`,
   password: process.env.POSTGRES_PASSWORD,
