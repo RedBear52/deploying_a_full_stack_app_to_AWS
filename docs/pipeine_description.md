@@ -1,7 +1,5 @@
 ### CI/CD Pipeline Breakdown
 
-![Pipeline_Diagram](docs/CICD_Pipeline_Diagram.png)
-
 1. Setup and Connection: The pipeline is set up and connected with the GitHub repository in CircleCI.
 2. Install Dependencies: Orbs are used to install Node.js, the AWS CLI, and the EB CLI.
 3. Code Checkout: The pipeline checks out the code from the repository.
