@@ -8,11 +8,9 @@ jobs:
     docker:
       - image: "cimg/node:14.15"
     steps:
-      # install node and checkout code
       - node/install:
           node-version: '14.15'         
       - checkout
-      # Use root level package.json to install dependencies in the frontend app
       - run:
           name: Install Front-End Dependencies
           command: |
@@ -21,7 +19,6 @@ jobs:
             echo "NPM --version" 
             echo $(npm --version)
             npm run frontend:install
-      # Install dependencies in the the backend API          
       - run:
           name: Install API Dependencies
           command: |
@@ -30,22 +27,18 @@ jobs:
             echo "NPM --version"
             echo $(npm --version)
             npm run api:install
-      # Lint the frontend
       - run:
           name: Front-End Lint
           command: npm run frontend:lint
-      # Build the frontend app
       - run:
           name: Front-End Build
           command: npm run frontend:build
-      # Build the backend API      
       - run:
           name: API Build
           command: npm run api:build
   deploy:
     docker:
       - image: "cimg/base:stable"
-      # additional setup in aws, node, elastic beanstalk
     steps:
       - node/install:
           node-version: '14.15' 
@@ -54,11 +47,9 @@ jobs:
       - checkout
       - run:
           name: Deploy App
-          # cd into api and install, build, deploy via the api:deploy script
           command: npm run api:deploy
       - run:
           name: Deploy Frontend
-          # cd into frontend and install, build, deploy via the frontend:deploy script
           command: npm run frontend:deploy
 workflows:
   udagram:
